@@ -945,6 +945,7 @@ func (we *WorkflowExecutor) waitMainContainerStart() (string, error) {
 		fieldSelector := fields.ParseSelectorOrDie(fmt.Sprintf("metadata.name=%s", we.PodName))
 		opts := metav1.ListOptions{
 			FieldSelector: fieldSelector.String(),
+			ResourceVersion: "0",
 		}
 
 		var err error
